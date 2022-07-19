@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400&display=swap');
+
+*,
+body{  
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+}
+body{
+    background: #F0EFE9;
+}
+a,
+a:hover{
+    color: #000;
+    text-decoration: none;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 38px;
+}
+nav h2{
+    text-transform: uppercase;
+}
+nav .link a{
+    margin: 0 20px;
+}
+.content{
+    background: #FFFFFF;
+    width: 90%;
+    margin: 44px auto 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+}
+.cb-todo-layout{
+    margin-bottom: 40px;
+}
+.cb-todo-app {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    width: 520px;
+    min-height: 600px;
+    background: #161a2b;
+    text-align: center;
+    margin: 128px auto;
+    border-radius: 10px;
+    padding-bottom: 32px;
+}
+
+h1 {
+    margin: 44px 0px 18px;
+    color: #000;
+    font-size: 24px;
+    text-align: center;
+}
+
+.complete {
+    text-decoration: line-through;
+    opacity: 0.4;
+}
+
+.cb-todo-form {
+    margin-bottom: 32px;
+    display: flex;
+    flex-direction: column;
+}
+
+.cb-todo-input {
+    padding: 14px 32px 14px 16px;
+    border-radius: 4px;
+    border: 2px solid #50E3A4;
+    outline: none;
+    width: 320px;
+    background: transparent;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.cb-todo-input::placeholder {
+    color: #000;
+}
+
+.cb-todo-button {
+    padding: 16px;
+    border: none;
+    border-radius: 4px;
+    
+    cursor: pointer;
+    outline: none;
+    background: #50E3A4;
+    color: #fff;
+    text-transform: capitalize;
+}
+
+.cb-todo-input.edit {
+    border: 2px solid #149fff;
+}
+
+.cb-todo-button.edit {
+    background: linear-gradient(
+    90deg,
+    rgba(20, 159, 255, 1) 0%,
+    rgba(17, 122, 255, 1) 100%
+    );
+    padding: 16px 22px;
+}
+
+.cb-todo-container {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.cb-todo-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 4px auto;
+    color: #fff;
+    background: #50E3A4;
+
+    padding: 16px;
+    border-radius: 5px;
+    width: 90%;   
+}
+.cb-todo-name{
+    cursor: pointer;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.cb-delete-icon {
+    margin-right: 5px;
+    color: #fff;
+}
+
+.cb-edit-icon {
+    color: #fff;
+}
