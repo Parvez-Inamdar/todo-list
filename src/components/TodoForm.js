@@ -1,41 +1,31 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
+import { Form, Field } from 'react-final-form';
 
 export default function TodoForm(props) {
-
-    const [input,setInput] = useState('');
-
-    const inputRef = useRef(null)
-
-    useEffect(() => {
-        inputRef.current.focus()
-    })
-
-    const handleChange = (e) => {
-        setInput(e.target.value);
-    }
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
+    console.log("InitialValues", props.initialValues);
+    const handleSubmit = (values) => {
+        console.log("VA" ,values);
         props.onSubmit({
-            id: Math.floor(Math.random() * 10000),
-            text: input
+            id: `${Math.floor(Math.random() * 10000)}`,
+            text: values.text,
+            description: values.description
         });
-
-        setInput('');
     };
 
-    
-
     return (
-        <form action="" className="cb-todo-form" onSubmit={handleSubmit}>
-            <input type="text" 
-                placeholder='Add a todo' 
-                value={input} 
-                name="text" 
-                className='cb-todo-input' 
-                onChange={handleChange}
-                ref={inputRef}/>
-            <button className="cb-todo-button">Add Todo</button>
-        </form>
+        <Form
+            onSubmit={(values) => {
+                console.log("TodoForm Values",values);
+                handleSubmit(values);
+            }}
+            initialValues={props.initialValues}
+            render={({ handleSubmit }) => (
+                <form action="" className="cb-todo-form" onSubmit={handleSubmit}>
+                    <Field name="text" component="input" placeholder="Add a name" className='cb-todo-input'/>
+                    <Field name="description" component="textarea" placeholder="Add a desc" className='cb-todo-input'/>
+                    <button type="submit" className="cb-todo-button">Add Todo</button>
+                </form>
+            )}
+        />  
     )
 }

@@ -1,55 +1,16 @@
-import React, { useState } from "react";
-import Layout from "../components/Layout";
-import TodoList from "../components/TodoList";
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Todo from "../components/Todo";
 
 
-export default function Home() {
-
-  // State here
-  const [todos, setTodos] = useState([]);
-
-    const addTodo = (todo) => {
-        if(!todo.text || /^\s*$/.test(todo.text)){
-            return;
-        }
-
-        const newTodos = [todo, ...todos];
-
-        setTodos(newTodos);
-    };
-
-    const updatedTodo = (todoId, newValue) => {
-        if(!newValue.text || /^\s*$/.test(newValue.text)){
-            return;
-        }
-
-        setTodos(prev => prev.map(item => (item.id === todoId ? newValue : item)));
-    }
-
-    const removeTodo = (id) => {
-        const removeArr = [...todos].filter(todo => todo.id !== id)
-
-        setTodos(removeArr)
-    }
-    const completeTodo = (id) => {
-        let updatedTodos = todos.map(todo => {
-            if(todo.id === id){
-                todo.isComplete = !todo.isComplete;
-            }
-            return todo;
-        })
-        setTodos(updatedTodos);
-  }
+export default function Home() {    
     
   return (
-      <Layout>
-        <TodoList 
-          todos = {todos}
-          addTodo={addTodo}
-          completeTodo={completeTodo}
-          updatedTodo={updatedTodo}
-          removeTodo={removeTodo}
-        />
-      </Layout>    
+    <BrowserRouter>
+        <Routes>
+            <Route exact path="/" element={<Todo />}></Route>
+            <Route path="/details/:id" element={<Todo />}></Route>
+        </Routes>
+    </BrowserRouter> 
   )
 }
