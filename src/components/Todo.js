@@ -57,7 +57,7 @@ export default function Todo() {
                 <div className="cb-todo-layout" key={index}>
                   <h1>Edit Activities</h1>
                   <p>
-                    Id: {todo.id} Name: {todo.text} Description:{" "}
+                    Id: {todo.id} Names: {todo.text} Descriptions:{" "}
                     {todo.description}
                   </p>
                   <TodoForm
