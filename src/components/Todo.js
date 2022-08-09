@@ -74,7 +74,7 @@ export default function Todo() {
           })
         ) : (
           <>
-            <h1>Daily Activities</h1>
+            <h1>Daily Activities 1</h1>
             <TodoForm onSubmit={addTodo} />
             <TodoItem
               todos={todos}
